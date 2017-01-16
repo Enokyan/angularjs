@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                                                                      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                                                                      crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="../assets/css/my.css">
+    </head>
+    <body  ng-app="myApp" >
+
+        <div  class='container' style='width:90%; margin-top:2%; background-color: aquamarine'>
+
+
+                <div  ng-controller="myCtrlll">
+                    <div class="myform" style="float:left;background-color: chartreuse;width: 48%">
+                        <h2>First Name</h2> <input class="form-control"  type="text" ng-model="firstName"><br><br>
+                        <h2>Last Name </h2><input class="form-control"  type="text" ng-model="lastName"><br><br>
+                        <h2>Age </h2><input class="form-control"  type="text" ng-model="age"><br><br>
+                        <br>
+
+                        <button ng-click="insert()"  class="btn btn-default form-control">Select</button>
+                    </div>
+                        <div class="result" style="float:right;background-color: chartreuse;width: 48%">
+
+                            <table border="1px solid">
+                                <tr ng-repeat="x in results">
+                                    <td>{{x.firstName}}</td>
+                                    <td>{{x.lastName}}</td>
+                                    <td>{{x.age}}</td>
+                                    <td><button ng-click="Sample($event)" class="btn btn-default form-control">Delete</button></td>
+                                </tr>
+                                <tr ng-repeat="x in results">
+                                    <td>a</td>
+                                    <td>s</td>
+                                    <td>d</td>
+                                    <td><button ng-click="Sample($event)" class="btn btn-default form-control">Delete</button></td>
+                                </tr>
+                             </table>
+                        </div>
+
+
+                </div>
+
+        </div>
+
+
+
+    <script src="../app/js/angular.min.js"></script>
+    <script src="../app/app.js"></script>
+    <script src="../app/contollers/mycontroller.js"></script>
+
+    </body>
+</html>
