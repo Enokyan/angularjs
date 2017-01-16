@@ -1,38 +1,57 @@
 myApp.controller('myCtrlll', function($scope) {
-
+    var result = {
+       results: []
+    };
+    $scope.t=false;
     $scope.insert=function () {
-        var result=[{
-            "firstName" : $scope.firstName,
-            "lastName" : $scope.lastName,
-            "age" : $scope.age
-        }]
 
-
-        var values = [{
-
-        }];
-
-        values+=['firstName' + ': ' +  $scope.firstName,
-            'lastName' + ': ' +  $scope.lastName,
-            'age' + ': ' +  $scope.age];
-        console.log(values);
-        // var log = [];
-        // angular.forEach(values, function(value, key) {
-        // }, log);
-        // expect(log).toEqual(['name: misko', 'gender: male']);
-        //  console.log(result)
+        $scope.data=result;
         if($scope.firstName && $scope.lastName &&  $scope.age) {
-            $scope.results = result;
+
+            $scope.data.results.push( {
+                firstName:$scope.firstName,
+                lastName:$scope.lastName,
+                age: $scope.age});
+
             $scope.firstName = '';
             $scope.lastName = '';
             $scope.age = '';
+            // console.log($scope.data)
         }
     }
 
+    $scope.Delete = function(index){
 
-    $scope.Sample = function(event){
-        angular.element(event.target).parent().parent().remove();
+        $scope.data.results.splice(index,1)
     };
+
+    $scope.Update = function(index){
+
+         var data=$scope.data.results[index];
+         $scope.index=index;
+         $scope.firstName=data.firstName;
+         $scope.lastName=data.lastName;
+         $scope.age=data.age;
+        $scope.t=true;
+
+
+
+
+
+    };
+    $scope.tableUpdate=function () {
+
+        var index=$scope.index;
+        $update = $scope.data.results[index];
+        $update['firstName']=$scope.firstName;
+        $update['lastname']=$scope.lastName;
+        $update['age']=$scope.age;
+        $scope.t=false;
+        $scope.firstName = '';
+        $scope.lastName = '';
+        $scope.age = '';
+
+    }
 });
 
 
