@@ -1,6 +1,6 @@
-myApp.controller('myCtrlll', function($scope) {
+app.controller('myCtrlll', function($scope) {
     var result = {
-       results: []
+        results: []
     };
     $scope.t=false;
     $scope.insert=function () {
@@ -12,11 +12,9 @@ myApp.controller('myCtrlll', function($scope) {
                 firstName:$scope.firstName,
                 lastName:$scope.lastName,
                 age: $scope.age});
-
             $scope.firstName = '';
             $scope.lastName = '';
             $scope.age = '';
-            // console.log($scope.data)
         }
     }
 
@@ -27,20 +25,14 @@ myApp.controller('myCtrlll', function($scope) {
 
     $scope.Update = function(index){
 
-         var data=$scope.data.results[index];
-         $scope.index=index;
-         $scope.firstName=data.firstName;
-         $scope.lastName=data.lastName;
-         $scope.age=data.age;
+        var data=$scope.data.results[index];
+        $scope.index=index;
+        $scope.firstName=data.firstName;
+        $scope.lastName=data.lastName;
+        $scope.age=data.age;
         $scope.t=true;
-
-
-
-
-
     };
     $scope.tableUpdate=function () {
-
         var index=$scope.index;
         $update = $scope.data.results[index];
         $update['firstName']=$scope.firstName;
@@ -50,9 +42,5 @@ myApp.controller('myCtrlll', function($scope) {
         $scope.firstName = '';
         $scope.lastName = '';
         $scope.age = '';
-
     }
 });
-
-
-
